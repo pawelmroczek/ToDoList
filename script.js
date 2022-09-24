@@ -15,9 +15,9 @@
 
     for (const task of tasks) {
       console.log(task.content);
-      document.querySelector(".js-list").innerHTML += `<li ${
-        task.done ? 'class="done"' : ""
-      }> 
+      document.querySelector(".js-list").innerHTML += `<li class="js-toggleStatus ${
+        task.done ? 'done' : ""
+      }"> 
       <button>✅</button>${
         task.content
       } <button class="js-deleteButton">🗑</button></li> `;
@@ -29,6 +29,15 @@
         taskRemove(index);
       });
     });
+
+    const toggleStatus = document.querySelectorAll(".js-toggleStatus");
+
+    toggleStatus.forEach((toggleStatus, index) => {
+        toggleStatus.addEventListener("click", () => {
+            tasks[index].done = !tasks[index].done ;
+            render()
+        })
+    })
   };
 
   const taskRemove = (index) => {
