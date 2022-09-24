@@ -18,17 +18,31 @@
       document.querySelector(".js-list").innerHTML += `<li ${
         task.done ? 'class="done"' : ""
       }> 
-      <button>✅</button>${task.content} <button class="js-deleteButton">🗑</button></li> `;
+      <button>✅</button>${
+        task.content
+      } <button class="js-deleteButton">🗑</button></li> `;
     }
+    const removeButtons = document.querySelectorAll(".js-deleteButton");
+
+    removeButtons.forEach((removeButton, index) => {
+      removeButton.addEventListener("click", () => {
+        taskRemove(index);
+      });
+    });
+  };
+
+  const taskRemove = (index) => {
+    tasks.splice(index, 1);
+    render();
   };
 
   const addingNewTask = (TaskInput) => {
     tasks.push({
-        content: TaskInput,
-      });
-      render();
+      content: TaskInput,
+    });
+    render();
     document.querySelector(".js-TaskInput").value = "";
-  }
+  };
 
   const taskForm = document.querySelector(".js-TaskForm");
 
@@ -39,12 +53,12 @@
     if (TaskInput === "") {
       return;
     }
-   addingNewTask(TaskInput)
+    addingNewTask(TaskInput);
   });
 
   const init = () => {
-    render()
-  }
+    render();
+  };
 
-  init()
+  init();
 }
