@@ -1,6 +1,40 @@
 .form{
     background-color: white;
-    width: 85%;
-    margin: 0 auto;
+    padding: 0px;
+    box-shadow: 0px 0px 18px -11px rgba(66, 68, 90, 1);
 }
 
+.form__headerContener{
+    padding: 5px 15px 5px;
+    border-bottom: solid 2px rgb(206, 205, 205);
+}
+
+.form__inputContener{
+    display: flex;
+    padding: 15px;
+    justify-content: space-around;
+}
+
+
+.form__input{
+    width: 80%;
+    font-size: 20px;
+    padding: 5px;
+    border: solid black 2px;
+    border-radius: 3px;
+}
+
+
+.form__button{
+    color:white;
+    background-color: teal;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 300;
+    margin-left: 5px;
+}
+
+.form__button:hover{
+    font-weight: 400;
+}
