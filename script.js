@@ -1,11 +1,11 @@
 {
   const tasks = [
     {
-      content: `Zrobić pranie`,
+      content: `Oto prosta lista zadań`,
       done: false,
     },
     {
-      content: `Kupić mleko`,
+      content: `Mozesz przełączać status zadania zielonym przyciskiem bądź usuwać juz zrobione zadania czerwonym`,
       done: true,
     },
   ];
