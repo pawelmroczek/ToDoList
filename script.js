@@ -30,10 +30,14 @@
       console.log(task.content);
       document.querySelector(
         ".js-list"
-      ).innerHTML += `<li class=" ${task.done ? "done" : ""}"> 
-      <button class="js-toggleStatus">✅</button>${
+      ).innerHTML += `<li class=" taskList__listIteam ${task.done ? " done" : ""}"> 
+      <span><button class="js-toggleStatus taskList__toggleButton">✔️</button>${
         task.content
-      } <button class="js-deleteButton">🗑</button></li> `;
+      }</span>
+      <span>
+       <button class="js-deleteButton taskList__removeButton">🗑</button>
+       </span>
+       </li> `;
     }
     const removeButtons = document.querySelectorAll(".js-deleteButton");
 
