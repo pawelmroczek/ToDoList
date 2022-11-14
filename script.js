@@ -31,9 +31,12 @@
       document.querySelector(
         ".js-list"
       ).innerHTML += `<li class=" taskList__listIteam ${task.done ? " done" : ""}"> 
-      <span><button class="js-toggleStatus taskList__toggleButton">✔️</button>${
+      <button class="js-toggleStatus taskList__toggleButton">${task.done ? " ✔️" : ""}</button>
+      <div class="taskList__taskContent">
+      ${
         task.content
-      }</span>
+      }
+      </div>
       <span>
        <button class="js-deleteButton taskList__removeButton">🗑</button>
        </span>
@@ -71,6 +74,7 @@
 
     taskForm.addEventListener("submit", (event) => {
       event.preventDefault();
+      document.querySelector(".js-TaskInput").focus();
   
       const TaskInput = document.querySelector(".js-TaskInput").value.trim();
       if (TaskInput === "") {
