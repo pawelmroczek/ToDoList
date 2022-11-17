@@ -30,9 +30,9 @@
       console.log(task.content);
       document.querySelector(
         ".js-list"
-      ).innerHTML += `<li class=" taskList__listIteam ${task.done ? " done" : ""}"> 
+      ).innerHTML += `<li class=" taskList__listIteam "> 
       <button class="js-toggleStatus taskList__toggleButton">${task.done ? " ✔️" : ""}</button>
-      <div class="taskList__taskContent">
+      <div class="taskList__taskContent ${task.done ? " done" : ""}">
       ${
         task.content
       }
