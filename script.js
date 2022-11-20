@@ -31,11 +31,11 @@
       document.querySelector(
         ".js-list"
       ).innerHTML += `<li class=" taskList__listIteam "> 
-      <button class="js-toggleStatus taskList__toggleButton">${task.done ? " ✔️" : ""}</button>
+      <button class="js-toggleStatus taskList__toggleButton">${
+        task.done ? " ✔️" : ""
+      }</button>
       <div class="taskList__taskContent ${task.done ? " done" : ""}">
-      ${
-        task.content
-      }
+      ${task.content}
       </div>
       <span>
        <button class="js-deleteButton taskList__removeButton">🗑</button>
@@ -52,8 +52,6 @@
 
     const toggleStatus = document.querySelectorAll(".js-toggleStatus");
 
-
-
     toggleStatus.forEach((toggleStatus, index) => {
       toggleStatus.addEventListener("click", () => {
         tasks[index].done = !tasks[index].done;
@@ -61,11 +59,6 @@
       });
     });
   };
-
-
-
-
- 
 
   const init = () => {
     render();
@@ -75,7 +68,7 @@
     taskForm.addEventListener("submit", (event) => {
       event.preventDefault();
       document.querySelector(".js-TaskInput").focus();
-  
+
       const TaskInput = document.querySelector(".js-TaskInput").value.trim();
       if (TaskInput === "") {
         return;

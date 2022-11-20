@@ -1,64 +1,58 @@
-.taskList{
-    text-align: left;
-    width: 100%;
-    background-color: white;
-    margin-top: 15px;
+.taskList {
+  text-align: left;
+  width: 100%;
+  background-color: white;
+  margin-top: 15px;
 }
 
-.taskList__listContener{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
+.taskList__listContener {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
 }
 
-
-.taskList__headerContener{
-    padding: 5px 15px 5px;
-    border-bottom: solid 2px rgb(206, 205, 205);
+.taskList__headerContener {
+  padding: 5px 15px 5px;
+  border-bottom: solid 2px rgb(206, 205, 205);
 }
 
-
-.taskList__list{
-    list-style: none;
-    width: 95%;
-    padding: 0;
+.taskList__list {
+  list-style: none;
+  width: 95%;
+  padding: 0;
 }
 
-
-.taskList__listIteam{
-    border-bottom: solid 2px rgb(220, 220, 220);
-    padding: 10px;
-    font-size: 17px;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
+.taskList__listIteam {
+  border-bottom: solid 2px rgb(220, 220, 220);
+  padding: 10px;
+  font-size: 17px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.taskList__taskContent{
-    text-align: left;
-    flex-grow: 1;
+.taskList__taskContent {
+  text-align: left;
+  flex-grow: 1;
 }
 
-
-.taskList__toggleButton{
-    background-color: rgb(27, 134, 34);
-    border: none;
-    padding: 10px;
-    font-size: 17px;
-    margin-right: 7px;
-    width: 37px;
-    height: 37px;
+.taskList__toggleButton {
+  background-color: rgb(27, 134, 34);
+  border: none;
+  padding: 10px;
+  font-size: 17px;
+  margin-right: 7px;
+  width: 37px;
+  height: 37px;
 }
-
 
 .taskList__removeButton {
-    background-color: rgb(240, 47, 68);
-    padding: 10px;
-    margin-right: 10px;
-    border: none;
-    width: 37px;
-    height: 37px;
-    
+  background-color: rgb(240, 47, 68);
+  padding: 10px;
+  margin-right: 10px;
+  border: none;
+  width: 37px;
+  height: 37px;
 }
