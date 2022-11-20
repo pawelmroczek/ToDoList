@@ -11,4 +11,4 @@
 Script on this page allows you to add tasks, change their status or remove them.
 
 Screenshot of my page:
-![Screenshot of my page]()
+![Screenshot of my page](images/screenshotOfPage.png)
