@@ -27,20 +27,16 @@
     document.querySelector(".js-list").innerHTML = ``;
 
     for (const task of tasks) {
-      console.log(task.content);
-      document.querySelector(
-        ".js-list"
-      ).innerHTML += `<li class=" taskList__listIteam "> 
-      <button class="js-toggleStatus taskList__toggleButton">${
-        task.done ? " ✔️" : ""
-      }</button>
-      <div class="taskList__taskContent ${task.done ? " done" : ""}">
-      ${task.content}
-      </div>
-      <span>
-       <button class="js-deleteButton taskList__removeButton">🗑</button>
-       </span>
-       </li> `;
+      document.querySelector(".js-list").innerHTML += `
+    <li class=" taskList__listIteam "> 
+        <button class="js-toggleStatus taskList__button taskList__button--done">
+            ${task.done ? "✅" : ""}
+        </button>
+        <div class="taskList__taskContent ${task.done ? " done" : ""}">
+            ${task.content}
+        </div>
+        <button class="js-deleteButton taskList__button taskList__button--remove">🗑</button>
+    </li> `;
     }
     const removeButtons = document.querySelectorAll(".js-deleteButton");
 
