@@ -30,9 +30,25 @@
   };
 
   const HideDoneTasks = () =>{
-    const doneTask=tasksWithNewItems.filter(({done})=>done)
+    const doneTask=tasksWithNewItems.filter(({done})=>!done)
     tasksToRender=doneTask
   }
+
+  const toggleRenderButton=document.querySelector(".js-toggleRender");
+  
+ 
+  const toggleRender =()=>{
+    if(toggleRenderButton.innerText==="Ukryj ukończone"){
+      HideDoneTasks()
+      toggleRenderButton.innerText="Pokaż ukończone"
+    }else{
+      tasksToRender=tasksWithNewItems;
+      toggleRenderButton.innerText="Ukryj ukończone"
+    }
+    
+  }
+
+  
 
 
   const render = () => {
@@ -68,6 +84,12 @@
       });
     });
   };
+
+  toggleRenderButton.addEventListener("click",()=>{
+    toggleRender()
+    render()
+  })
+
 
   const init = () => {
     render();
