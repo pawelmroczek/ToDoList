@@ -16,6 +16,8 @@
 .taskList__headerContener {
   padding: 5px 15px 5px;
   border-bottom: solid 2px rgb(206, 205, 205);
+  display: flex;
+  justify-content: space-between;
 }
 
 .taskList__list {
@@ -23,6 +25,19 @@
   width: 95%;
   padding: 0;
 }
+
+.taskList__taskButton{
+  border: none;
+  background:none;
+  color: teal;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.taskList__taskButton:hover{
+  color: rgb(4, 187, 187);
+}
+
 
 .taskList__listIteam {
   border-bottom: solid 2px rgb(220, 220, 220);
@@ -34,6 +49,12 @@
   align-items: center;
 }
 
+.taskList__buttonContener {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .taskList__taskContent {
   text-align: left;
   flex-grow: 1;
@@ -41,16 +62,16 @@
 }
 
 .taskList__button--done {
-  background-color: rgb(27, 134, 34); 
-  color: white; 
+  background-color: rgb(27, 134, 34);
+  color: white;
   font-size: 25px;
 }
 
 .taskList__button--remove {
-  background-color: rgb(240, 47, 68); 
+  background-color: rgb(240, 47, 68);
 }
 
-.taskList__button{
+.taskList__button {
   border: none;
   padding: 10px;
   flex-shrink: 0;
@@ -59,4 +80,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 767px) {
+  .taskList__headerContener {
+    flex-direction: column;
+  }
 }
