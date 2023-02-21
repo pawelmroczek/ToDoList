@@ -10,23 +10,36 @@
     },
   ];
 
+  tasksWithNewItems=[
+    ...tasks
+  ]
+
+  let tasksToRender=tasksWithNewItems;
+
   const taskRemove = (index) => {
-    tasks.splice(index, 1);
+    tasksWithNewItems.splice(index, 1);
     render();
   };
 
   const addingNewTask = (TaskInput) => {
-    tasks.push({
+    tasksWithNewItems.push({
       content: TaskInput,
     });
     render();
     document.querySelector(".js-TaskInput").value = "";
   };
 
+  const HideDoneTasks = () =>{
+    const doneTask=tasksWithNewItems.filter(({done})=>done)
+    tasksToRender=doneTask
+  }
+
+
   const render = () => {
     document.querySelector(".js-list").innerHTML = ``;
 
-    for (const task of tasks) {
+    
+    for (const task of tasksToRender) {
       document.querySelector(".js-list").innerHTML += `
     <li class=" taskList__listIteam "> 
         <button class="js-toggleStatus taskList__button taskList__button--done">
@@ -50,7 +63,7 @@
 
     toggleStatus.forEach((toggleStatus, index) => {
       toggleStatus.addEventListener("click", () => {
-        tasks[index].done = !tasks[index].done;
+        tasksWithNewItems[index].done = !tasksWithNewItems[index].done;
         render();
       });
     });
@@ -74,4 +87,6 @@
   };
 
   init();
+
+
 }
