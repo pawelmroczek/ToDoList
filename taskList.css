@@ -38,6 +38,18 @@
   color: rgb(4, 187, 187);
 }
 
+.taskList__taskButton--disabled{
+  color: lightgray;
+}
+
+.taskList__taskButton--disabled:hover{
+  color: lightgray;
+}
+
+.taskList__taskButton--hidden{
+  display: none;
+}
+
 
 .taskList__listIteam {
   border-bottom: solid 2px rgb(220, 220, 220);

@@ -48,12 +48,52 @@
     
   }
 
+  const finishTasks=()=>{
+    tasksWithNewItems.forEach(
+      (task)=>{
+        task.done=true;
+      }  
+    )
+  }
+
+  const doneAllButton=document.querySelector(".js-doneAll")
   
+  doneAllButton.addEventListener("click",()=>{
+    finishTasks();
+    render();
+  })
+
+  const checkIfFinish =()=>{
+   return tasksWithNewItems.every(({done})=>done==true)
+  }
+
+  const checkIfEmpty=()=>{
+    return tasksWithNewItems.length;
+  }
+
+  const buttonsManagement=()=>{
+    if(checkIfFinish()){
+      doneAllButton.disabled=true;
+      doneAllButton.classList.add("taskList__taskButton--disabled");
+    }else{
+      doneAllButton.disabled=false;
+      doneAllButton.classList.remove("taskList__taskButton--disabled");
+    }
+
+    if(!checkIfEmpty()){
+      doneAllButton.classList.add("taskList__taskButton--hidden");
+      toggleRenderButton.classList.add("taskList__taskButton--hidden")
+    }else{
+      doneAllButton.classList.remove("taskList__taskButton--hidden");
+      toggleRenderButton.classList.remove("taskList__taskButton--hidden")
+    }
+
+  }
 
 
   const render = () => {
     document.querySelector(".js-list").innerHTML = ``;
-
+    buttonsManagement();
     
     for (const task of tasksToRender) {
       document.querySelector(".js-list").innerHTML += `
