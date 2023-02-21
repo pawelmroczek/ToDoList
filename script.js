@@ -30,7 +30,7 @@
       document.querySelector(".js-list").innerHTML += `
     <li class=" taskList__listIteam "> 
         <button class="js-toggleStatus taskList__button taskList__button--done">
-            ${task.done ? "✅" : ""}
+            ${task.done ? "✓" : ""}
         </button>
         <div class="taskList__taskContent ${task.done ? " done" : ""}">
             ${task.content}

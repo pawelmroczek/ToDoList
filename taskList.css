@@ -41,7 +41,9 @@
 }
 
 .taskList__button--done {
-  background-color: rgb(27, 134, 34);  
+  background-color: rgb(27, 134, 34); 
+  color: white; 
+  font-size: 25px;
 }
 
 .taskList__button--remove {
