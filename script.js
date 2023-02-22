@@ -74,10 +74,8 @@
   const buttonsManagement=()=>{
     if(checkIfFinish()){
       doneAllButton.disabled=true;
-      doneAllButton.classList.add("taskList__taskButton--disabled");
     }else{
       doneAllButton.disabled=false;
-      doneAllButton.classList.remove("taskList__taskButton--disabled");
     }
 
     if(!checkIfEmpty()){
