@@ -1,9 +1,9 @@
 .taskList {
   text-align: left;
-  width: 100%;
   background-color: white;
   margin-top: 15px;
   padding: 5px;
+  box-shadow: 0px 0px 18px -11px rgba(66, 68, 90, 1);
 }
 
 .taskList__listContener {
@@ -32,17 +32,18 @@
   color: teal;
   font-weight: 300;
   font-size: 18px;
+  transition: 500ms ease-in-out;
 }
 
 .taskList__taskButton:hover{
   color: rgb(4, 187, 187);
 }
 
-.taskList__taskButton--disabled{
+.taskList__taskButton:disabled{
   color: lightgray;
 }
 
-.taskList__taskButton--disabled:hover{
+.taskList__taskButton:disabled:hover{
   color: lightgray;
 }
 
@@ -65,6 +66,7 @@
   display: flex;
   align-items: center;
   gap: 5px;
+  padding: 20px;
 }
 
 .taskList__taskContent {
@@ -77,10 +79,19 @@
   background-color: rgb(27, 134, 34);
   color: white;
   font-size: 25px;
+ 
 }
 
 .taskList__button--remove {
   background-color: rgb(240, 47, 68);
+}
+
+.taskList__button--done:hover{
+  background-color:rgb(34, 170, 43);
+}
+
+.taskList__button--remove:hover {
+  background-color: rgb(165, 3, 22);
 }
 
 .taskList__button {
@@ -92,10 +103,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 500ms ease-in-out;
 }
 
 @media (max-width: 767px) {
   .taskList__headerContener {
     flex-direction: column;
+  }
+  .taskList__buttonContener{
+    flex-direction: column;
+    gap: 15px;
   }
 }
