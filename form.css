@@ -36,8 +36,8 @@
 
 .form__button:hover {
   font-weight: 400;
-  transform:scale(1.10);
-  background-color: rgb(4, 187, 187);;
+  transform: scale(1.1);
+  background-color: rgb(4, 187, 187);
 }
 
 @media (max-width: 767px) {
@@ -45,7 +45,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    gap:15px
+    gap: 15px;
   }
 
   .form__input {

@@ -1,5 +1,5 @@
 {
-  const tasks = [
+  let tasks = [
     {
       content: `Oto prosta lista zadań`,
       done: false,
@@ -9,52 +9,59 @@
       done: true,
     },
   ];
-
-  tasksWithNewItems = [...tasks];
-
-  let tasksToRender = tasksWithNewItems;
+  let hideDoneTask = false;
   let buttonText = "Ukryj ukończone";
 
-  const buttonContener = document.querySelector(".js-buttonContener");
-
   const taskRemove = (index) => {
-    tasksWithNewItems.splice(index, 1);
+    tasks = [...tasks.slice(0, index), ...tasks.slice(index + 1)];
+
     render();
   };
 
   const addingNewTask = (TaskInput) => {
-    tasksWithNewItems.push({
-      content: TaskInput,
-    });
+    tasks = [
+      ...tasks,
+      {
+        content: TaskInput,
+      },
+    ];
     render();
     document.querySelector(".js-TaskInput").value = "";
   };
 
-  const HideDoneTasks = () => {
-    const doneTask = tasksWithNewItems.filter(({ done }) => !done);
-    tasksToRender = doneTask;
+  const toggleTaskStatus = (index) => {
+    tasks = [
+      ...tasks.slice(0, index),
+      { ...tasks[index], done: !tasks[index].done },
+      ...tasks.slice(index + 1),
+    ];
+    render();
   };
 
-  
-
-  
+  const hideDoneTasks = () => {
+    hideDoneTask = !hideDoneTask;
+  };
 
   const finishTasks = () => {
-    tasksWithNewItems.forEach((task) => {
-      task.done = true;
+    tasks.forEach((task, index) => {
+      if (!task.done) {
+        toggleTaskStatus(index);
+      }
     });
   };
 
   const checkIfFinish = () => {
-    return tasksWithNewItems.every(({ done }) => done == true);
+    return tasks.every(({ done }) => done == true);
   };
 
-  const checkIfEmpty = () => {
-    return tasksWithNewItems.length;
+  const checkIfNotEmpty = () => {
+    return tasks.length;
   };
 
   const buttonsManagement = () => {
-    if (!checkIfEmpty()) {
+    const buttonContener = document.querySelector(".js-buttonContener");
+
+    if (!checkIfNotEmpty()) {
       buttonContener.innerHTML = "";
     } else {
       buttonContener.innerHTML = `<button class="taskList__taskButton js-toggleRender">${buttonText}</button>
@@ -75,12 +82,11 @@
 
       const toggleRender = () => {
         if (toggleRenderButton.innerText === "Ukryj ukończone") {
-          HideDoneTasks();
           buttonText = "Pokaż ukończone";
         } else {
-          tasksToRender = tasksWithNewItems;
           buttonText = "Ukryj ukończone";
         }
+        hideDoneTasks();
       };
 
       if (checkIfFinish()) {
@@ -95,9 +101,11 @@
     document.querySelector(".js-list").innerHTML = ``;
     buttonsManagement();
 
-    for (const task of tasksToRender) {
+    for (const task of tasks) {
       document.querySelector(".js-list").innerHTML += `
-    <li class=" taskList__listIteam "> 
+    <li class="  ${
+      task.done && hideDoneTask ? "taskList__hidden" : "taskList__listIteam"
+    }  "> 
         <button class="js-toggleStatus taskList__button taskList__button--done">
             ${task.done ? "✓" : ""}
         </button>
@@ -119,12 +127,10 @@
 
     toggleStatus.forEach((toggleStatus, index) => {
       toggleStatus.addEventListener("click", () => {
-        tasksWithNewItems[index].done = !tasksWithNewItems[index].done;
-        render();
+        toggleTaskStatus(index);
       });
     });
   };
- 
 
   const init = () => {
     render();

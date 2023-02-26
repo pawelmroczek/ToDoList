@@ -1,3 +1,7 @@
+.taskList__hidden{
+  display: none;
+}
+
 .taskList {
   text-align: left;
   background-color: white;
@@ -47,9 +51,7 @@
   color: lightgray;
 }
 
-.taskList__taskButton--hidden{
-  display: none;
-}
+
 
 
 .taskList__listIteam {
