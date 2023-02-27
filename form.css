@@ -6,7 +6,7 @@
 
 .form__headerContener {
   padding: 5px 15px 5px;
-  border-bottom: solid 2px rgb(206, 205, 205);
+  border-bottom: solid 1px rgb(220, 220, 220);
 }
 
 .form__inputContener {
@@ -32,6 +32,7 @@
   font-weight: 300;
   margin-left: 5px;
   transition: 500ms;
+  cursor: pointer;
 }
 
 .form__button:hover {
