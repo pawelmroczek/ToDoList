@@ -12,13 +12,13 @@
   let hideDoneTask = false;
   let buttonText = "Ukryj ukończone";
 
-  const taskRemove = (index) => {
+  const removeTask = (index) => {
     tasks = [...tasks.slice(0, index), ...tasks.slice(index + 1)];
 
     render();
   };
 
-  const addingNewTask = (TaskInput) => {
+  const addNewTask = (TaskInput) => {
     tasks = [
       ...tasks,
       {
@@ -26,7 +26,7 @@
       },
     ];
     render();
-    document.querySelector(".js-TaskInput").value = "";
+    
   };
 
   const toggleTaskStatus = (index) => {
@@ -50,7 +50,7 @@
     });
   };
 
-  const checkIfFinish = () => {
+  const checkAllTaskAreDone = () => {
     return tasks.every(({ done }) => done == true);
   };
 
@@ -89,7 +89,7 @@
         hideDoneTasks();
       };
 
-      if (checkIfFinish()) {
+      if (checkAllTaskAreDone()) {
         doneAllButton.disabled = true;
       } else {
         doneAllButton.disabled = false;
@@ -119,7 +119,7 @@
 
     removeButtons.forEach((removeButton, index) => {
       removeButton.addEventListener("click", () => {
-        taskRemove(index);
+        removeTask(index);
       });
     });
 
@@ -145,7 +145,8 @@
       if (TaskInput === "") {
         return;
       }
-      addingNewTask(TaskInput);
+      addNewTask(TaskInput);
+      document.querySelector(".js-TaskInput").value = "";
     });
   };
 
