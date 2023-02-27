@@ -10,7 +10,7 @@
     },
   ];
   let hideDoneTask = false;
-  let buttonText = "Ukryj ukończone";
+  
 
   const removeTask = (index) => {
     tasks = [...tasks.slice(0, index), ...tasks.slice(index + 1)];
@@ -38,7 +38,7 @@
     render();
   };
 
-  const hideDoneTasks = () => {
+  const toggleDoneTaskView = () => {
     hideDoneTask = !hideDoneTask;
   };
 
@@ -64,7 +64,7 @@
     if (!checkIfNotEmpty()) {
       buttonContener.innerHTML = "";
     } else {
-      buttonContener.innerHTML = `<button class="taskList__taskButton js-toggleRender">${buttonText}</button>
+      buttonContener.innerHTML = `<button class="taskList__taskButton js-toggleRender">${hideDoneTask ? "Pokaż" : "Ukryj"} ukończone</button>
       <button class="taskList__taskButton js-doneAll">Ukończ wszystkie</button>`;
 
       const doneAllButton = document.querySelector(".js-doneAll");
@@ -81,19 +81,10 @@
       });
 
       const toggleRender = () => {
-        if (toggleRenderButton.innerText === "Ukryj ukończone") {
-          buttonText = "Pokaż ukończone";
-        } else {
-          buttonText = "Ukryj ukończone";
-        }
-        hideDoneTasks();
+        toggleDoneTaskView();
       };
 
-      if (checkAllTaskAreDone()) {
-        doneAllButton.disabled = true;
-      } else {
-        doneAllButton.disabled = false;
-      }
+      doneAllButton.disabled=checkAllTaskAreDone();
     }
   };
 
@@ -132,21 +123,31 @@
     });
   };
 
+  const onFormSubmit = ()=>{
+    event.preventDefault();
+
+    const taskInputElement = document.querySelector(".js-TaskInput");
+    const taskContent = taskInputElement.value.trim();
+
+    taskInputElement.focus();
+
+     if (taskContent === "") {
+        return;
+    }
+
+    addNewTask(taskContent);
+    taskInputElement.value = "";
+  }
+
+
+
   const init = () => {
     render();
 
     const taskForm = document.querySelector(".js-TaskForm");
 
     taskForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      document.querySelector(".js-TaskInput").focus();
-
-      const TaskInput = document.querySelector(".js-TaskInput").value.trim();
-      if (TaskInput === "") {
-        return;
-      }
-      addNewTask(TaskInput);
-      document.querySelector(".js-TaskInput").value = "";
+      onFormSubmit();
     });
   };
 
