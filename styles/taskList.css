@@ -2,7 +2,7 @@
   display: none;
 }
 
-.taskList {
+.section__body {
   text-align: left;
   background-color: white;
   margin-top: 15px;
