@@ -13,36 +13,40 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="styles/form.css" rel="stylesheet" />
   <link href="styles/taskList.css" rel="stylesheet" />
+  <link href="styles/section.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
 </head>
 
 <body class="body">
-  <div class="body__content">
-    <section>
-      <h1 class="header">Lista zadań</h1>
-      <form class="form js-TaskForm">
-        <div class="form__headerContener">
-          <h2>Dodaj nowe zadanie</h2>
-        </div>
-        <div class="form__inputContener">
+  <main class="body__content">
+    <header>
+      <h1>Lista zadań</h1>
+    </header>
+
+    <section class="section js-TaskForm">
+      <header class="section__header">
+        <h2 class="section__title">Dodaj nowe zadanie</h2>
+      </header>
+      <div class="section__body">
+        <form class="form">
           <input class="js-TaskInput form__input" placeholder="Co jest do zrobienia?" />
           <button class="form__button">Dodaj zadanie</button>
-        </div>
-      </form>
-    </section>
-    <section class="section__body">
-      <div class="taskList__headerContener">
-        <h2 class="taskList__header">Lista zadań</h2>
-        <div class="taskList__buttonContener js-buttonContener">
-        </div>
-      </div>
-      <div class="taskList__listContener">
-        <ul class="js-list taskList__list"></ul>
+        </form>
       </div>
     </section>
-  </div>
+
+    <section class="section">
+      <div class="section__header">
+        <h2 class="section__title">Lista zadań</h2>
+        <div class="buttonContener js-buttonContener"></div>
+      </div>
+      <div class="section__body">
+        <ul class="js-list tasks__list"></ul>
+      </div>
+    </section>
+  </main>
 </body>
 
 </html>

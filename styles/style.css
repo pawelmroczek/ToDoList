@@ -1,3 +1,12 @@
+html{
+  box-sizing: border-box;
+}
+
+*,::after,::before{
+  box-sizing: inherit;
+}
+
+
 .body {
   background-color: rgb(240, 240, 240);
   font-family: "Lato", sans-serif;
@@ -6,11 +15,6 @@
 .body__content {
   width: 85%;
   margin: 35px auto;
-}
-
-.header {
-  font-weight: 900;
-  font-size: 35px;
 }
 
 .done {

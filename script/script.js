@@ -64,8 +64,8 @@
     if (!checkIfNotEmpty()) {
       buttonContener.innerHTML = "";
     } else {
-      buttonContener.innerHTML = `<button class="taskList__taskButton js-toggleRender">${hideDoneTask ? "Pokaż" : "Ukryj"} ukończone</button>
-      <button class="taskList__taskButton js-doneAll">Ukończ wszystkie</button>`;
+      buttonContener.innerHTML = `<button class="tasks__headerButton js-toggleRender">${hideDoneTask ? "Pokaż" : "Ukryj"} ukończone</button>
+      <button class="tasks__headerButton js-doneAll">Ukończ wszystkie</button>`;
 
       const doneAllButton = document.querySelector(".js-doneAll");
       const toggleRenderButton = document.querySelector(".js-toggleRender");
@@ -95,15 +95,15 @@
     for (const task of tasks) {
       document.querySelector(".js-list").innerHTML += `
     <li class="  ${
-      task.done && hideDoneTask ? "taskList__hidden" : "taskList__listIteam"
+      task.done && hideDoneTask ? "tasks__hidden" : "tasks__iteam"
     }  "> 
-        <button class="js-toggleStatus taskList__button taskList__button--done">
+        <button class="js-toggleStatus tasks__button tasks__button--done">
             ${task.done ? "✓" : ""}
         </button>
-        <div class="taskList__taskContent ${task.done ? " done" : ""}">
+        <div class="tasks__content ${task.done ? " done" : ""}">
             ${task.content}
         </div>
-        <button class="js-deleteButton taskList__button taskList__button--remove">🗑</button>
+        <button class="js-deleteButton tasks__button tasks__button--remove">🗑</button>
     </li> `;
     }
     const removeButtons = document.querySelectorAll(".js-deleteButton");
